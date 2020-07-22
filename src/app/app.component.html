@@ -1,4 +1,4 @@
-<input type="text" [(ngModel)]="title"/>
+<input type="text" [(ngModel)]="title" />
 {{title}}
 
 <p *ngIf="title !== 'store'">Se cumplio la condicion</p>
@@ -23,3 +23,11 @@
   <p *ngSwitchCase="'Carlos'">Este es Carlos</p>
   <p *ngSwitchDefault>No se encontro ningun nombre</p>
 </div>
+
+<section class="product-grid">
+  <app-product
+  *ngFor="let product of products"
+  (productClicked)="productClicked($event)"
+  [product]="product">
+  </app-product>
+</section>

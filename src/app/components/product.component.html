@@ -1,0 +1,16 @@
+<section>
+    <div>
+        <h3>{{product.title}}</h3>
+        <img [src]="product.image" alt="Imagen del producto">
+        <div class="group-info">
+            <label>Precio:</label>
+            <p>RD${{product.price}}</p>
+        </div>
+        <div class="group-info">
+            <label>Descripcion:</label>
+            <p>{{product.description}}</p>
+        </div>
+        
+        <button (click)="addCart(product.id)">Agregar al carrito</button>
+    </div>
+</section>
