@@ -8,7 +8,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import { ProductModel } from '../models/product.model';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product',
@@ -16,7 +16,7 @@ import { ProductModel } from '../models/product.model';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnChanges, OnInit {
-  @Input() product: ProductModel;
+  @Input() product: Product;
   @Output() productClicked: EventEmitter<number> = new EventEmitter();
   toDate = new Date();
 

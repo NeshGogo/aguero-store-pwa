@@ -20,26 +20,28 @@
     label{
         font-weight: bold;
     }
-    button{
-        margin: 10px;
-        padding: 10px;
-        border: none;
-        color: grey;
-        font-weight: bold;
-        font-size: 12px;
-        border-radius: 10px;
-        background-color: rgb(185, 195, 240);
-    }
-    button:focus{
-        border: none;
-        outline: none;
-    };
-    button:active{
-        color: whitesmoke;
-        background-color: rgb(147, 165, 245);
-    }
 }
 
 img{
     max-width: 100%;
+}
+
+.btn{
+    margin: 10px;
+    margin-right: 0;
+    padding: 10px;
+    border: none;
+    color: grey;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 10px;
+    background-color: rgb(185, 195, 240);
+}
+.btn:focus{
+    border: none;
+    outline: none;
+};
+.btn:active{
+    color: whitesmoke;
+    background-color: rgb(147, 165, 245);
 }

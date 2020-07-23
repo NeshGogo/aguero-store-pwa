@@ -1,0 +1,31 @@
+<input type="text" [(ngModel)]="title" />
+{{title}}
+<br>
+<br>
+<input type="number" [(ngModel)]="valuePow" />
+{{valuePow | exponential}} <!--Aqui estamos utilizando el pipe que creamos-->
+
+<p *ngIf="title !== 'store'">Se cumplio la condicion</p>
+
+<h3> Working with ng-for</h3>
+<button (click)="addItem()">Add element</button>
+
+<ol>
+  <li *ngIf="names.length === 0">La lista esta vacia</li>
+  <li *ngFor="let name of names; index as i">
+    {{name}}
+    <button (click)="deleteItem(i)">Delete element</button>
+  </li>
+</ol>
+
+<h3>Haciendo uso de ng-switch</h3>
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'Rafael'">Este es Rafael</p>
+  <p *ngSwitchCase="'Maria'">Esta es Maria</p>
+  <p *ngSwitchCase="'Elorent'">Esta es Elorent</p>
+  <p *ngSwitchCase="'Carlos'">Este es Carlos</p>
+  <p *ngSwitchDefault>No se encontro ningun nombre</p>
+</div>
+
+

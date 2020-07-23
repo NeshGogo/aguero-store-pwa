@@ -1,0 +1,14 @@
+<section class="swiper-container">
+  <div class="swiper-wrapper">
+    <div *ngFor="let imgUrls of imageUrls" class="swiper-slide">
+      <img
+        width="100%"
+        height="350"
+        [src]="imgUrls"
+        alt="Imagen del baner que muestra una ropa."
+      />
+    </div>
+  </div>
+  <div class="swiper-button-prev" (click)="prevSlide()"></div>
+  <div class="swiper-button-next" (click)="nextSlide()"></div>
+</section>
