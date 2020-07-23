@@ -18,6 +18,8 @@ import { ProductModel } from '../models/product.model';
 export class ProductComponent implements OnChanges, OnInit {
   @Input() product: ProductModel;
   @Output() productClicked: EventEmitter<number> = new EventEmitter();
+  toDate = new Date();
+
   constructor() {
     console.log('1. Constructor');
   }

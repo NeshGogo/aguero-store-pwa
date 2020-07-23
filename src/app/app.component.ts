@@ -49,6 +49,7 @@ export class AppComponent {
       description: 'Una tasa especial para una persona especial.',
     },
   ];
+  valuePow = 0;
   title = 'store';
   count = 1;
   names = ['Rafael', 'Maria', 'Elorent', 'Carlos'];
