@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="header-row">
+    <div>
+      <span class="brand" routerLink="/home">Aguero Store</span>
+      <nav>
+        <a
+          mat-button
+          *ngFor="let link of links"
+          routerLink="{{ link.url }}"
+          routerLinkActive="active"
+        >
+          {{ link.title }}
+        </a>
+      </nav>
+    </div>
+    <a mat-raised-button matBadge="4" matBadgeColor="warn" href="">
+      <mat-icon aria-hidden="false" aria-label="Carro de compras"
+        >shopping_cart</mat-icon
+      >
+      Carrito
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>

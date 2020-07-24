@@ -1,0 +1,23 @@
+<section>
+    <div>
+        <h3>{{product.title | uppercase}}</h3><!--Estamos usando el pipe uppercase para poner todo en mayusculas-->
+        <img [src]="product.image" alt="Imagen del producto">
+        <div class="group-info">
+            <label>Precio:</label>
+            <p>RD{{product.price | currency}}</p> <!--Estamos usando el pipe currency para formatear las monedas-->
+        </div>
+        <div class="group-info">
+            <label>Fecha:</label>
+            <p>{{toDate | date}}</p> <!--Estamos usando el pipe date para ajustar el formato de la fecha.
+                                        Este se puede personalizar.-->
+        </div>
+        <div class="group-info">
+            <label>Descripcion:</label>
+            <p>{{product.description | slice:0:25}}...</p> <!--Estamos usando el pipe slice para cortar caractes-->
+        </div>
+        <div>
+            <button mat-raised-button color="primary"  (click)="addCart()">Agregar al carrito</button>
+            <a mat-raised-button  [routerLink]="['/products',product.id]">Ver detalle</a>
+        </div>
+    </div>
+</section>

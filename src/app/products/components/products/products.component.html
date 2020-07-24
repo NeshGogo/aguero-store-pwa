@@ -1,0 +1,7 @@
+<section class="product-grid">
+  <app-product
+  *ngFor="let product of products"
+  (productClicked)="productClicked($event)"
+  [product]="product">
+  </app-product>
+</section>
