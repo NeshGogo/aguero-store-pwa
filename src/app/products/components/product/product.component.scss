@@ -1,31 +1,32 @@
 // Estos eran los estilos antes de implementar material.
-:host{
-    display: block;
-    margin: 15px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px grey;
-    h3{
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        text-align: center;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 2px;
-        background-color: rgb(185, 195, 240);
-    }
-    .group-info{
-        margin-left: 10px;
-        margin-top: 10px;
-    }
-    label{
-        font-weight: bold;
-    }
-}
+// :host{
+//     display: block;
+//     margin: 15px;
+//     border: 1px solid grey;
+//     border-radius: 10px;
+//     box-shadow: 2px 2px 5px grey;
+//     h3{
+//         border-top-left-radius: 10px;
+//         border-top-right-radius: 10px;
+//         text-align: center;
+//         font-size: 25px;
+//         font-weight: 500;
+//         padding: 2px;
+//         background-color: rgb(185, 195, 240);
+//     }
+//     .group-info{
+//         margin-left: 10px;
+//         margin-top: 10px;
+//     }
+//     label{
+//         font-weight: bold;
+//     }
+// }
 
-img{
-    max-width: 100%;
-}
+// img{
+//     max-width: 100%;
+// }
+
 
 // .btn{
 //     text-decoration: none;
@@ -47,3 +48,19 @@ img{
 //     color: whitesmoke;
 //     background-color: rgb(147, 165, 245);
 // }
+
+
+
+//Estilos despues de agregar material.
+:host{
+    margin-top: 20px;
+}
+.crop-image{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    img{
+        max-width: 100%;
+        height: 100%;
+    }
+}

@@ -5,6 +5,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [],
@@ -17,7 +22,12 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatInputModule,
+    MatCardModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatSidenavModule
   ],
 })
 export class MaterialModule { }
