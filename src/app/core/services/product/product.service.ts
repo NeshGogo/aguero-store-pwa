@@ -1,60 +1,72 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Product } from '../../models/product';
+import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  products: Product[] = [
-    {
-      id: 1,
-      image:
-        'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      title: 'Tasa',
-      price: 1200,
-      description: 'Una tasa especial para una persona especial.',
-    },
-    {
-      id: 2,
-      image:
-        'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      title: 'Camisa',
-      price: 1200,
-      description: 'Una tasa especial para una persona especial.',
-    },
-    {
-      id: 3,
-      image:
-        'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      title: 'Pantalon',
-      price: 1200,
-      description: 'Una tasa especial para una persona especial.',
-    },
-    {
-      id: 4,
-      image:
-        'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      title: 'Broche',
-      price: 1200,
-      description: 'Una tasa especial para una persona especial.',
-    },
-    {
-      id: 5,
-      image:
-        'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      title: 'Zapato',
-      price: 1200,
-      description: 'Una tasa especial para una persona especial.',
-    },
-  ];
-  constructor() {}
+  // products: Product[] = [
+  //   {
+  //     id: 1,
+  //     image:
+  //       'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  //     title: 'Tasa',
+  //     price: 1200,
+  //     description: 'Una tasa especial para una persona especial.',
+  //   },
+  //   {
+  //     id: 2,
+  //     image:
+  //       'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  //     title: 'Camisa',
+  //     price: 1200,
+  //     description: 'Una tasa especial para una persona especial.',
+  //   },
+  //   {
+  //     id: 3,
+  //     image:
+  //       'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  //     title: 'Pantalon',
+  //     price: 1200,
+  //     description: 'Una tasa especial para una persona especial.',
+  //   },
+  //   {
+  //     id: 4,
+  //     image:
+  //       'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  //     title: 'Broche',
+  //     price: 1200,
+  //     description: 'Una tasa especial para una persona especial.',
+  //   },
+  //   {
+  //     id: 5,
+  //     image:
+  //       'https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  //     title: 'Zapato',
+  //     price: 1200,
+  //     description: 'Una tasa especial para una persona especial.',
+  //   },
+  // ];
+  constructor(private http: HttpClient) {}
 
-  getAllProducts(): Product[] {
-    return this.products;
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${environment.ApiUrl}/products/`);
   }
 
-  getProduct(id: number): Product {
-    const product = this.products.find(( prod ) => prod.id === id);
-    return product;
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${environment.ApiUrl}/products/${id}`);
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(`${environment.ApiUrl}/products`, product);
+  }
+  updateProduct(id: string, change: Partial<Product>): Observable<Product> {
+    return this.http.put<Product>(`${environment.ApiUrl}/products/${id}`, change);
+  }
+  deleteProduct(id: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${environment.ApiUrl}/products/${id}`);
   }
 }

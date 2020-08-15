@@ -17,7 +17,7 @@ import { Product } from '../../../core/models/product';
 })
 export class ProductComponent implements OnChanges, OnInit {
   @Input() product: Product;
-  @Output() productClicked: EventEmitter<number> = new EventEmitter();
+  @Output() productClicked: EventEmitter<string> = new EventEmitter();
   toDate = new Date();
 
   constructor() {
