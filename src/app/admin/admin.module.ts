@@ -8,10 +8,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { NavComponent } from './components/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent],
+  declarations: [ProductFormComponent, NavComponent, ProductListComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

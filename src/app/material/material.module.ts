@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -27,7 +28,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatCardModule,
     MatSelectModule,
     MatRadioModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule
   ],
 })
 export class MaterialModule { }
