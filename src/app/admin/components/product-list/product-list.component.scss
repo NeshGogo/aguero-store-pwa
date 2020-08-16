@@ -1,4 +1,18 @@
+
+$btnGreen: rgb(4, 185, 83);
+
 .products-table{
   width: 96%;
   margin: 2%;
+  margin-top: 1%;
+  text-align: center;
+  th{
+    text-align: center;
+  }
+}
+.btn-create{
+  margin-top: 2%;
+  margin-left: 2%;
+  background-color: $btnGreen;
+  color: white;
 }

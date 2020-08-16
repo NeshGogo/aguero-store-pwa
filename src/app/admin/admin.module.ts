@@ -9,10 +9,11 @@ import { MaterialModule } from '../material/material.module';
 import { NavComponent } from './components/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, ProductListComponent],
+  declarations: [ProductFormComponent, NavComponent, ProductListComponent, ProductEditComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
