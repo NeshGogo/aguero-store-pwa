@@ -1,19 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CartService } from '../../../core/services/cart.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  total = 0;
   links = [
-    {url: '/home', title: 'Home'},
-    {url: '/products', title: 'Products'},
-    {url: '/contact', title: 'Contact'},
+    { url: '/home', title: 'Home' },
+    { url: '/products', title: 'Products' },
+    { url: '/contact', title: 'Contact' },
   ];
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private cartService: CartService) {
+    this.cartService.cart$.subscribe((products) => {
+      this.total = products.length;
+    });
   }
 
+  ngOnInit(): void {}
 }
