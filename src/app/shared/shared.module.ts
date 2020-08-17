@@ -8,6 +8,7 @@ import { HighlightDirective } from './directive/highlight/highlight.directive';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MaterialModule } from '../material/material.module';
+import { RepeatedQuantityPipe } from './pipes/repeated-quantity/repeated-quantity.pipe';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,14 @@ import { MaterialModule } from '../material/material.module';
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    RepeatedQuantityPipe,
   ],
   exports: [
     ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    RepeatedQuantityPipe,
   ],
   imports: [
     CommonModule,
