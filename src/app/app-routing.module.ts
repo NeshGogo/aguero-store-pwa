@@ -25,7 +25,6 @@ const routes: Routes = [
       },
       {
         path: 'contact',
-        canActivate: [AdminGuard],
         loadChildren: () =>
           import('./contact/contact.module').then((m) => m.ContactModule),
       },
@@ -47,6 +46,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [AdminGuard],
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
   },
   {

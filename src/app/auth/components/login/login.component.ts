@@ -21,14 +21,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   login(event: Event): void{
     event.preventDefault();
     if(this.form.valid){
       const value = this.form.value;
-      this.authService.createUser(value.email, value.password)
+      this.authService.login(value.email, value.password)
       .then(() => {
-        this.router.navigate(['/auth/login']);
-      });
+        this.router.navigate(['/admin']);
+      })
+      .catch( (error) => alert('No es valido'));
     }
   }
 

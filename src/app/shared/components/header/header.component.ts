@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
     { url: '/home', title: 'Home' },
     { url: '/products', title: 'Products' },
     { url: '/contact', title: 'Contact' },
+    { url: '/auth/login', title: 'admin' },
   ];
   constructor(private cartService: CartService) {
     this.total$ = this.cartService.cart$.pipe(
