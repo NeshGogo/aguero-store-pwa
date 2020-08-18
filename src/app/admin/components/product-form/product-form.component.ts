@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 import { ProductService } from '../../../core/services/product/product.service';
 import { MyValidators } from '../../../utils/my-validatos';
+import { map, finalize, tap } from 'rxjs/operators';
+import { Observable, pipe } from 'rxjs';
 
 @Component({
   selector: 'app-product-form',
@@ -12,10 +15,14 @@ import { MyValidators } from '../../../utils/my-validatos';
 })
 export class ProductFormComponent {
   form: FormGroup;
+  percenUpload$: Observable<number>;
+  private image$: Observable<string>;
+
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
     private router: Router,
+    private angularFireStorage: AngularFireStorage,
   ) {
     this.buildForm();
   }
@@ -30,7 +37,6 @@ export class ProductFormComponent {
         this.router.navigate(['admin/products'])
       });
     }
-    console.log(this.form.value);
   }
   // Asi es como construimos el formulario cuando tenemos multiples campos.
   private buildForm(): void{
@@ -38,7 +44,8 @@ export class ProductFormComponent {
       id: ['', [Validators.required] ],
       title: ['', [Validators.required] ],
       price: [0, [Validators.required, MyValidators.isPriceValided] ],
-      description: ['', [Validators.required]]
+      description: ['', [Validators.required]],
+      image: ['', [Validators.required]]
     });
   }
 
@@ -46,4 +53,19 @@ export class ProductFormComponent {
     return this.form.get('price');
   }
 
+  uploadFile(event: any): void {
+    const file = event.target.files[0];
+    const dir = 'pictures/products';
+    const storeRef = this.angularFireStorage.ref(`/${dir}/${file.name}`);
+    const uploadFile = storeRef.put(file);
+    this.percenUpload$ = uploadFile.percentageChanges();
+    uploadFile.snapshotChanges().pipe(
+      finalize(() => {
+        this.image$ = storeRef.getDownloadURL();
+        this.image$.subscribe( url => {
+          this.form.get('image').setValue(url);
+        });
+      }),
+    ).subscribe();
+  }
 }

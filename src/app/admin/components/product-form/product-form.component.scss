@@ -1,0 +1,19 @@
+$mat-primary:  #3f51b5;
+
+.form-file{
+  border: 1px solid grey;
+  height: 100px;
+  width: 170px;
+  font-size: 12px;
+  border-radius: 3px;
+  padding: 5px;
+  color: grey;
+}
+.form-file:focus{
+  outline: none;
+  border: 1.5px solid $mat-primary;
+}
+
+.progressbar{
+  margin-top: 20px;
+}
