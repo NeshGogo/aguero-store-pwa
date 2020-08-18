@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "aguero-store-a7dc9": {
+      "hosting": {
+        "store": [
+          "aguero-store-a7dc9"
+        ]
+      }
+    }
+  }
+}
