@@ -11,14 +11,26 @@
         >
           {{ link.title }}
         </a>
+        <button
+          *ngIf="installEvent"
+          mat-raised-button
+          (click)="installByUser()"
+          color="accent"
+        >
+          Instalar
+        </button>
       </nav>
     </div>
-    <a mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn" routerLink="/order">
+    <a
+      mat-raised-button
+      [matBadge]="total$ | async"
+      matBadgeColor="warn"
+      routerLink="/order"
+    >
       <mat-icon aria-hidden="false" aria-label="Carro de compras"
         >shopping_cart</mat-icon
       >
       Carrito
     </a>
-    <button *ngIf="installEvent" mat-raised-button (click)="installByUser()" color="accent">Instalar</button>
   </mat-toolbar-row>
 </mat-toolbar>
