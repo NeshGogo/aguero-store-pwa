@@ -39,10 +39,12 @@ export class AppComponent implements OnInit{
       window.location.reload();
     })
   }
+
   requestPermission(): void {
     this.fireMessaging.requestToken
     .subscribe(token => this.tokenCollection.add({token}));
   }
+  
   listenPermission(): void {
     this.fireMessaging.messages
     .subscribe(value =>  console.log(value));
